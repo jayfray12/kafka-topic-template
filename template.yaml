@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application 5
+  description: Create a Kafka Topic for use in your application 6
   tags:
     - recommended
     - kafka
@@ -72,7 +72,7 @@ spec:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
           destination: development/${{parameters.name}}
-          kafka-cluster: ${{ parameters.cluster }}
+          kcluster: ${{ parameters.cluster }}
           namespace: ${{ parameters.namespace }}
           partitions: ${{ parameters.partitions }}
           replicas: ${{ parameters.replicas }}
@@ -111,11 +111,9 @@ spec:
           repository_host: gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com
           deployment_name: topic-template
           user: ${{ user.entity.metadata.name }}
-          kafka-cluster: ${{ parameters.cluster }}
+          kcluster: ${{ parameters.cluster }}
           partitions: ${{ parameters.partitions }}
           replicas: ${{ parameters.replicas }}
-          random: ${{ parameters.cluster }}
-          hardcode: my-cluster-hc
         targetPath: ./tenant-gitops
 
     - id: publish-gitops
