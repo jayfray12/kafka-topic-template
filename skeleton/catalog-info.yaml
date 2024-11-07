@@ -7,7 +7,6 @@ metadata:
   {%- endif %}
   annotations:
     argocd/app-selector: rht-gitops.com/janus-argocd=${{values.name}}-bootstrap
-    backstage.io/kubernetes-id: ${{values.name}}
     backstage.io/source-location: url:https://${{values.host}}/${{values.destination}}
     gitlab.com/project-slug: ${{values.destination}}
   tags:
