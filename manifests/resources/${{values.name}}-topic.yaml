@@ -1,0 +1,13 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: ${{values.name}}
+  namespace: ${{values.namespace}}
+  finalizers:
+    - strimzi.io/topic-operator
+  labels:
+    strimzi.io/cluster: ${{values.kafka-cluster}}
+spec:
+  partitions: ${{values.partitions}}
+  replicas: ${{values.replicas}}
+  topicName: ${{values.name}}

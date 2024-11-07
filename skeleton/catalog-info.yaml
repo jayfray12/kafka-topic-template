@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.name | dump}}
+  {%- if values.description %}
+  description: ${{values.description | dump}}
+  {%- endif %}
+  annotations:
+    argocd/app-selector: rht-gitops.com/janus-argocd=${{values.name}}-bootstrap
+    backstage.io/kubernetes-id: ${{values.name}}
+    backstage.io/source-location: url:https://${{values.host}}/${{values.destination}}
+    gitlab.com/project-slug: ${{values.destination}}
+  tags:
+    - kafka
+    - topic
+    - amq
+  links:
+    - url: https://console-openshift-console.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/k8s/ns/${{values.namespace}}/clusterserviceversions/amqstreams.v2.7.0-7/kafka.strimzi.io~v1beta2~KafkaTopic/${{values.name}}
+      title: OpenShift Kafka Topic Resource
+      icon: web
+spec:
+  type: kafka-topic
+  lifecycle: production
+  owner: ${{values.owner | dump}}
+
