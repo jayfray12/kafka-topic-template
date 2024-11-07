@@ -9,7 +9,7 @@ metadata:
 spec:
   project: janus
   source:
-    repoURL: https://${{values.host}}/${{ values.destination }}
+    repoURL: https://${{values.repository_host}}/${{ values.destination }}
     targetRevision: HEAD
     path: ./resources
   destination:
