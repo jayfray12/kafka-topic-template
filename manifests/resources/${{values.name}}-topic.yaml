@@ -7,6 +7,10 @@ metadata:
     - strimzi.io/topic-operator
   labels:
     strimzi.io/cluster: ${{values.kafka-cluster}}
+    test-cluster: ${{values.kafka-cluster}}
+    test-cluster-dump: ${{values.kafka-cluster | dump}}
+    test-deployment-name: ${{values.deployment_name}}
+    test-namespace: ${{values.namespace}}
 spec:
   partitions: ${{values.partitions}}
   replicas: ${{values.replicas}}

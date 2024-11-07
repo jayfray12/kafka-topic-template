@@ -18,6 +18,9 @@ metadata:
     - url: https://console-openshift-console.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/k8s/ns/${{values.namespace}}/clusterserviceversions/amqstreams.v2.7.0-7/kafka.strimzi.io~v1beta2~KafkaTopic/${{values.name}}
       title: OpenShift Kafka Topic Resource
       icon: web
+    - url: https://${{values.host}}/${{values.destination}}-gitops
+      title: GitOps Source
+      icon: web
 spec:
   type: kafka-topic
   lifecycle: production
