@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application 8
+  description: Create a Kafka Topic for use in your application 9
   tags:
     - recommended
     - kafka
@@ -102,7 +102,7 @@ spec:
         values:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
-          destination: development/${{parameters.name}}
+          destination: development/${{parameters.name}}-gitops
           source_repository: https://gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/development/${{parameters.name}}.git
           repository_name: ${{parameters.name}}
           git_owner: development
