@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application 4
+  description: Create a Kafka Topic for use in your application 5
   tags:
     - recommended
     - kafka
@@ -114,6 +114,8 @@ spec:
           kafka-cluster: ${{ parameters.cluster }}
           partitions: ${{ parameters.partitions }}
           replicas: ${{ parameters.replicas }}
+          random: ${{ parameters.cluster }}
+          hardcode: my-cluster-hc
         targetPath: ./tenant-gitops
 
     - id: publish-gitops

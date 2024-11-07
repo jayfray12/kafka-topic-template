@@ -11,6 +11,8 @@ metadata:
     test-cluster-dump: ${{values.kafka-cluster | dump}}
     test-deployment-name: ${{values.deployment_name}}
     test-namespace: ${{values.namespace}}
+    test-random: ${{values.random}}
+    test-hardcode: ${{values.hardcode}}
 spec:
   partitions: ${{values.partitions}}
   replicas: ${{values.replicas}}
