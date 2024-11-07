@@ -77,13 +77,13 @@ spec:
           partitions: ${{ parameters.partitions }}
           replicas: ${{ parameters.replicas }}
           owner: ${{ parameters.owner }}
-          cluster: .apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
-          host: gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          cluster: .apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com
+          host: gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com
     - id: publish
       name: Publish
       action: publish:gitlab
       input:
-        repoUrl: "gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com?owner=development&repo=${{parameters.name}}"
+        repoUrl: "gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com?owner=development&repo=${{parameters.name}}"
         repoVisibility: public
 
     - id: register
@@ -102,13 +102,13 @@ spec:
         values:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
-          destination: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{parameters.name}}-gitops.git
-          source_repository: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{parameters.name}}.git
+          destination: https://gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/development/${{parameters.name}}-gitops.git
+          source_repository: https://gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/development/${{parameters.name}}.git
           repository_name: ${{parameters.name}}
           git_owner: development
-          cluster: .apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          cluster: .apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com
           namespace: ${{ parameters.namespace }}
-          repository_host: gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          repository_host: gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com
           deployment_name: topic-template
           user: ${{ user.entity.metadata.name }}
           kafka-cluster: ${{ parameters.cluster }}
@@ -120,7 +120,7 @@ spec:
       name: Publishing to Resource Repository
       action: publish:gitlab
       input:
-        repoUrl: "gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com?owner=development&repo=${{parameters.name}}-gitops"
+        repoUrl: "gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com?owner=development&repo=${{parameters.name}}-gitops"
         title: gitops resources for ${{ parameters.name }}
         description: gitops resources for ${{ parameters.name }}
         sourcePath: ./tenant-gitops
@@ -133,7 +133,7 @@ spec:
         appName: ${{ parameters.name }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{ parameters.name }}-gitops.git
+        repoUrl: https://gitlab-gitlab.apps.cluster-xmnl9.xmnl9.sandbox2272.opentlc.com/development/${{ parameters.name }}-gitops.git
         path: 'argocd/'
 
   output:
