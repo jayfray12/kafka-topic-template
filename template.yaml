@@ -52,7 +52,7 @@ spec:
           title: Namespace
           type: string
           description: OpenShift Namespace for the resource
-          default: my-namespace
+          default: kafka
           maxLength: 23
         owner:
           title: Owner
