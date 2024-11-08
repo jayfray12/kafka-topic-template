@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application
+  description: Create a Kafka Topic for use in your application 1
   tags:
     - recommended
     - kafka
@@ -83,7 +83,13 @@ spec:
           replicas: ${{ parameters.replicas }}
           owner: ${{ parameters.owner }}
           cluster: .apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          source_repository: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{parameters.name}}.git
+          repository_name: ${{parameters.name}}
+          git_owner: development
           host: gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          repository_host: gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
+          deployment_name: topic-template
+          user: ${{ user.entity.metadata.name }}
     - id: publish
       name: Publish
       action: publish:gitlab
@@ -98,39 +104,6 @@ spec:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: "/catalog-info.yaml"
 
-    - id: template-gitops-deployment
-      name: Generating Deployment Resources
-      action: fetch:template
-      input:
-        url: ./manifests
-        copyWithoutTemplating: []
-        values:
-          name: ${{ parameters.name }}
-          description: ${{ parameters.description }}
-          destination: development/${{parameters.name}}-gitops
-          source_repository: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{parameters.name}}.git
-          repository_name: ${{parameters.name}}
-          git_owner: development
-          cluster: .apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
-          namespace: ${{ parameters.namespace }}
-          repository_host: gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com
-          deployment_name: topic-template
-          user: ${{ user.entity.metadata.name }}
-          kcluster: ${{ parameters.cluster }}
-          partitions: ${{ parameters.partitions }}
-          replicas: ${{ parameters.replicas }}
-        targetPath: ./tenant-gitops
-
-    - id: publish-gitops
-      name: Publishing to Resource Repository
-      action: publish:gitlab
-      input:
-        repoUrl: "gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com?owner=development&repo=${{parameters.name}}-gitops"
-        title: gitops resources for ${{ parameters.name }}
-        description: gitops resources for ${{ parameters.name }}
-        sourcePath: ./tenant-gitops
-        repoVisibility: public
-
     - id: create-argocd-resources
       name: Create ArgoCD Resources
       action: argocd:create-resources
@@ -138,8 +111,8 @@ spec:
         appName: ${{ parameters.name }}-bootstrap
         argoInstance: main
         namespace: janus-argocd
-        repoUrl: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{ parameters.name }}-gitops.git
-        path: 'argocd/'
+        repoUrl: https://gitlab-gitlab.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/development/${{ parameters.name }}.git
+        path: 'manifests/argocd/'
 
   output:
     links:
