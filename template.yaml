@@ -20,13 +20,18 @@ spec:
       properties:
         cluster:
           title: Cluster
-          type: string
+          type: array
           description: Kafka Cluster for this Topic
-          default: my-cluster
-          ui:field: ComponentPicker
-          ui:options:
-            catalogFilter:
-              kind: [kafka-cluster]
+          default: cp-kafka-dev
+          uniqueItems: true
+          items: {
+            type: string
+            enum: [
+              "cp-kafka-core",
+              "cp-kafka-dev",
+              "cp-kafka-prod"
+            ]
+          }
         name:
           title: Topic Name
           type: string
