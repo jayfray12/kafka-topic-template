@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application 2
+  description: Create a Kafka Topic for use in your application 3
   tags:
     - recommended
     - kafka
@@ -23,15 +23,11 @@ spec:
           type: string
           description: Kafka Cluster for this Topic
           default: cp-kafka-dev
-          uniqueItems: true
-          items: {
-            type: string,
-            enum: [
+          enum: [
               "cp-kafka-core",
               "cp-kafka-dev",
               "cp-kafka-prod"
             ]
-          }
         name:
           title: Topic Name
           type: string
