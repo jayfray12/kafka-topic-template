@@ -25,7 +25,7 @@ spec:
           default: cp-kafka-dev
           uniqueItems: true
           items: {
-            type: string
+            type: string,
             enum: [
               "cp-kafka-core",
               "cp-kafka-dev",
