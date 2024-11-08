@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: "cp-kafka-core"
   description: "A general-purpose cluster for various data streams"
@@ -13,7 +13,7 @@ spec:
   owner: "group:default/user1"
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: "cp-kafka-prod"
   description: "A cluster specifically for production data streams"
@@ -27,7 +27,7 @@ spec:
   owner: "group:default/user1"
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: "cp-kafka-dev"
   description: "A cluster for development and testing purposes"
