@@ -23,8 +23,10 @@ spec:
           type: string
           description: Kafka Cluster for this Topic
           default: my-cluster
-          maxLength: 23
-          ui:autofocus: true
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: [kafka-cluster]
         name:
           title: Topic Name
           type: string
