@@ -23,7 +23,7 @@ spec:
           type: string
           description: Kafka Cluster for this Topic
           default: my-cluster
-          ui:field: OwnerPicker
+          ui:field: ComponentPicker
           ui:options:
             catalogFilter:
               kind: [kafka-cluster]
