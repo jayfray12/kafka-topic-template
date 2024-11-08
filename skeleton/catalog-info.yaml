@@ -16,7 +16,7 @@ metadata:
     - url: https://console-openshift-console.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/k8s/ns/${{values.namespace}}/clusterserviceversions/amqstreams.v2.7.0-7/kafka.strimzi.io~v1beta2~KafkaTopic/${{values.name}}
       title: OpenShift Kafka Topic Resource
       icon: web
-    - url: https://argocd-server-janus-argocd.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/applications/${{values.name}}
+    - url: https://argocd-server-janus-argocd.apps.cluster-c9d4f.c9d4f.sandbox2073.opentlc.com/applications/${{values.name}}-topic
       title: GitOps Application
       icon: web
 spec:
