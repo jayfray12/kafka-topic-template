@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: ${{values.name | dump}}
   {%- if values.description %}
@@ -8,7 +8,6 @@ metadata:
   annotations:
     argocd/app-selector: rht-gitops.com/janus-argocd=${{values.name}}-bootstrap
     backstage.io/source-location: url:https://${{values.host}}/${{values.destination}}
-    gitlab.com/project-slug: ${{values.destination}}
   tags:
     - kafka
     - topic
