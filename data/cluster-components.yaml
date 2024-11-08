@@ -1,0 +1,41 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "cp-kafka-core"
+  description: "A general-purpose cluster for various data streams"
+  tags:
+    - kafka
+    - topic
+    - amq
+spec:
+  type: kafka-cluster
+  lifecycle: production
+  owner: "group:default/user1"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "cp-kafka-prod"
+  description: "A cluster specifically for production data streams"
+  tags:
+    - kafka
+    - topic
+    - amq
+spec:
+  type: kafka-cluster
+  lifecycle: production
+  owner: "group:default/user1"
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "cp-kafka-dev"
+  description: "A cluster for development and testing purposes"
+  tags:
+    - kafka
+    - topic
+    - amq
+spec:
+  type: kafka-cluster
+  lifecycle: production
+  owner: "group:default/user1"
