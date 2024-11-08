@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application
+  description: Create a Kafka Topic for use in your application 2
   tags:
     - recommended
     - kafka
@@ -20,7 +20,7 @@ spec:
       properties:
         cluster:
           title: Cluster
-          type: array
+          type: string
           description: Kafka Cluster for this Topic
           default: cp-kafka-dev
           uniqueItems: true
