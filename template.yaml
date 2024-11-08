@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: kafka-topic-template
   title: Create a Kafka Topic
-  description: Create a Kafka Topic for use in your application 3
+  description: Create a Kafka Topic for use in your application
   tags:
     - recommended
     - kafka
